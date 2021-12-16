@@ -10,11 +10,14 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::get();
+        $profiles = Profile::all();
+        $user = User::all();
 
         return view('profiles.index', [
             'profiles' => $profiles,
+            'user' => $user,
         ]);
+        // return view('profiles.index', compact('profiles', 'user'));
     }
 
     public function create()

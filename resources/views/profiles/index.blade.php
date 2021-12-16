@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -31,7 +31,7 @@
                     @foreach ($profiles as $profile)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $profile->user_id }}</td>
+                        <td>{{ $profile->user->name }}</td>
                         <td>{{ $profile->nama_lengkap }}</td>
                         <td>{{ $profile->alamat }}</td>
                         <td>{{ $profile->pekerjaan }}</td>
