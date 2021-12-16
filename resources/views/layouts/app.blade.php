@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -51,6 +51,9 @@
                         @else
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.index') }}">Data User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profiles.index') }}">Data Profile</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

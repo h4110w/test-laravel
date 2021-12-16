@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Halaman User')
+@section('title', 'Halaman Profile')
 @include('alert')
 @section('content')
 <div class="container">
@@ -11,27 +11,35 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="card-header">Data User</div>
+                <div class="card-header">Data Profile</div>
                 <div class="card-body">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah Data</a>
+                    <a href="{{ route('profiles.create') }}" class="btn btn-primary">Tambah Data</a>
                 <table class="table table-bordered">
                     <tr>
                         <th style="width:15px">No</th>
                         <th>Nama User</th>
-                        <th>Email</th>
+                        <th>Nama Lengkap</th>
+                        <th>Alamat</th>
+                        <th>Pekerjaan</th>
+                        <th>Pendidikan</th>
+                        <th>No Telepon</th>
                         <th>Aksi</th>
                     </tr>
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ($users as $user)
+                    @foreach ($profiles as $profile)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $profile->user_id }}</td>
+                        <td>{{ $profile->nama_lengkap }}</td>
+                        <td>{{ $profile->alamat }}</td>
+                        <td>{{ $profile->pekerjaan }}</td>
+                        <td>{{ $profile->pendidikan }}</td>
+                        <td>{{ $profile->no_tlp }}</td>
                         <td>
-                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                <a class="btn btn-primary" href="{{ route('users.edit', $user) }}">Edit</a>
+                            <form action="{{ route('profiles.destroy', $profile->id) }}" method="POST">
+                                <a class="btn btn-primary" href="{{ route('profiles.edit', $profile) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
 

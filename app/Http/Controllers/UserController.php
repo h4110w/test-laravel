@@ -41,23 +41,11 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Simpan sukses!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
         $user = User::get();
@@ -67,29 +55,16 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            // 'password' => $request->password
         ]);
         return redirect()->route('users.index')->with('success', 'Update User success');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
         $user->delete();
